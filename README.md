@@ -1,3 +1,4 @@
+# RESTful-API_Docker-image
 Simple Docker project, to run a simple RESTful API with a simple database.
 
 ## How to run
@@ -41,8 +42,4 @@ docker rm <container-name>
 10. To remove the image Run the following command
 ```
 docker rmi <image-name>
-```# RESTful-API_Docker-image
-# RESTful-API_Docker-image
-# RESTful-API_Docker-image
-# RESTful-API_Docker-image
-# RESTful-API_Docker-image
+```
