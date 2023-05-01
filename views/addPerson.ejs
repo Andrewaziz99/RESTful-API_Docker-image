@@ -1,0 +1,39 @@
+<%-include("./header.ejs")%>
+
+  <body style="padding: 10px;">
+
+    <form action="/persons" method="post">
+      <div class="mb-3">
+        <label for="ID" class="form-label">ID</label>
+        <input type="number" class="form-control" id="id" name="id">
+      </div>
+
+      <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+
+      <div class="mb-3">
+        <label for="Age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" name="age">
+      </div>
+
+      <div class="mb-3">
+        <label for="Gender" class="form-label">Gender</label>
+        <input type="text" class="form-control" id="gender" name="gender">
+      </div>
+
+      <div class="mb-3">
+        <label for="Email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <%-include('./footer.ejs')%>
+  </body>

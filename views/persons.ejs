@@ -1,0 +1,129 @@
+<%-include("./header.ejs")%>
+
+    <body style="padding: 10px;">
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let i=0; i< Person.length;i++){%>
+                    <tr>
+                        <th scope="row">
+                            <%=Person[i].id%>
+                        </th>
+                        <td id="personName<%=Person[i].id%>">
+                            <%=Person[i].name%>
+                        </td>
+                        <td id="personAge<%=Person[i].id%>">
+                            <%=Person[i].age%>
+                        </td>
+                        <td id="personGender<%=Person[i].id%>">
+                            <%=Person[i].gender%>
+                        </td>
+                        <td id="personEmail<%=Person[i].id%>">
+                            <%=Person[i].email%>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateperson" onclick="getPersonIdToUpdate('<%=Person[i].id%>')">
+                                    Update
+                                  </button>
+                                  
+                                <!-- <form action="/persons/<%=Person[i].id%>" method="post">
+                                    <input type="text" name="id" hidden value="<%=Person[i].id%>">
+                                    <button class="btn btn-primary me-md-2" type="submit">Update</button>
+                                </form> -->
+                                <form action="/deletePerson/<%=Person[i].id%>" method="post">
+                                    <input type="text" name="id" hidden value="<%=Person[i].id%>">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+
+        <form action="/Create" method="get">
+            <button type="submit" class="btn btn-primary">Create New Person</button>
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="updateperson" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Person</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form action="/update" method="post">
+
+                            <input type="text" name="id" hidden id="idtoupdate">
+                            
+                            <div class="mb-3">
+                      
+                            <div class="mb-3">
+                              <label for="Name" class="form-label">Name</label>
+                              <input type="text" class="form-control" id="nametoupdate" name="name">
+                            </div>
+                      
+                            <div class="mb-3">
+                              <label for="Age" class="form-label">Age</label>
+                              <input type="number" class="form-control" id="agetoupdate" name="age">
+                            </div>
+                      
+                            <div class="mb-3">
+                              <label for="Gender" class="form-label">Gender</label>
+                              <input type="text" class="form-control" id="gendertoupdate" name="gender">
+                            </div>
+                      
+                            <div class="mb-3">
+                              <label for="Email" class="form-label">Email address</label>
+                              <input type="email" class="form-control" id="emailtoupdate" name="email" aria-describedby="emailHelp">
+                              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                      
+                      
+                      
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%-include('./footer.ejs')%>
+
+    </body>
+
+    </html>
