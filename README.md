@@ -13,7 +13,7 @@ MONGO_DBNAME=###
 
 3. Run the following command
 ```
-docker-compose build
+docker-compose up
 ```
 4. To find your image name Run the following command
 ```
